@@ -44,7 +44,7 @@ public class SnakeLadder {
                     }
                 }
             } else {
-                System.out.println("You need " + (boardSize - player) + " to win. Try again.");
+                 System.out.println("You need " + (boardSize - player) + " to win. Try again.");
             }
         }
     }
