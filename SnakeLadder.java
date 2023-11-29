@@ -12,12 +12,38 @@ public class SnakeLadder {
 
         int player = 0;         //initializing the player position
         int boardSize = 100;
+        int[] snakes = {16, 47, 49, 56, 62, 64, 87, 93};
+        int[] ladders = {2, 4, 9, 21, 28, 36, 51, 71};
+        int[] snakeBite = {6, 26, 11, 53, 33, 60, 24, 73};
+        int[] ladderClimb = {38, 14, 31, 42, 84, 44, 67, 91};
+
         while (player < boardSize) {
             System.out.println("Press enter to roll the dice");
             scanner.nextLine();
 
             int dice = random.nextInt(6) + 1;
             System.out.println("You rolled a " + dice);
+
+            if (player + dice <= boardSize) {
+                player += dice;
+                System.out.println("You are now at position " + player);
+
+                for (int i = 0; i < snakes.length; i++) {
+                    if (player == snakes[i]) {
+                        System.out.println("Oops! Snake bite at " + player);
+                        player = snakeBite[i];
+                        System.out.println("You are now at position " + player);
+                    }
+                }
+
+                for (int i = 0; i < ladders.length; i++) {
+                    if (player == ladders[i]) {
+                        System.out.println("Yay! Climbed a ladder at " + player);
+                        player = ladderClimb[i];
+                        System.out.println("You are now at position " + player);
+                    }
+                }
+            }
         }
     }
 }
