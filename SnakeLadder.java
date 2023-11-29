@@ -43,6 +43,8 @@ public class SnakeLadder {
                         System.out.println("You are now at position " + player);
                     }
                 }
+            } else {
+                System.out.println("You need " + (boardSize - player) + " to win. Try again.");
             }
         }
     }
