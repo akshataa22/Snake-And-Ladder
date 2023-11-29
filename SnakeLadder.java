@@ -16,12 +16,14 @@ public class SnakeLadder {
         int[] ladders = {2, 4, 9, 21, 28, 36, 51, 71};
         int[] snakeBite = {6, 26, 11, 53, 33, 60, 24, 73};
         int[] ladderClimb = {38, 14, 31, 42, 84, 44, 67, 91};
+        int rollCount = 0;                            // to count the number of rolls
 
         while (player < boardSize) {
             System.out.println("Press enter to roll the dice");
             scanner.nextLine();
 
             int dice = random.nextInt(6) + 1;
+            rollCount++;
             System.out.println("You rolled a " + dice);
 
             if (player + dice <= boardSize) {
@@ -47,5 +49,6 @@ public class SnakeLadder {
                  System.out.println("You need " + (boardSize - player) + " to win. Try again.");
             }
         }
+        System.out.println("Congratulations! You won in " + rollCount + " rolls.");
     }
 }
